@@ -1,0 +1,16 @@
+---
+title: Home
+---
+
+{% set gallery = "./src/assets/images/*.jpg" | glob %}
+{% extends "layouts/default.njk" %}
+
+{% block content %}
+
+	<header class="container py-md flex items-center justify-between gap-md">
+		<a href="/">Logo</a>
+		{{ component("menu", { links: site.menus.main }) }}
+		{{ component("mobile-menu", { links: site.menus.main, phoneNumber: site.phone }) }}
+	</header>
+
+{% endblock %}

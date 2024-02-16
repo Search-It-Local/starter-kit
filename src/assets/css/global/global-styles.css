@@ -1,0 +1,30 @@
+/**
+ * Global styles
+ *
+ * Low-specificity, global styles that apply to the whole
+ * project
+ */
+
+body {
+	color: var(--color-gray-800);
+	font-family: var(--font-sans);
+	font-size: var(--size-base);
+	line-height: var(--leading-base);
+}
+
+a[target='_blank'] {
+	display: inline-flex;
+	gap: var(--space-1);
+}
+
+a[target='_blank']::after {
+	content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiPgogIDxwYXRoIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTAgNkg2YTIgMiAwIDAwLTIgMnYxMGEyIDIgMCAwMDIgMmgxMGEyIDIgMCAwMDItMnYtNE0xNCA0aDZtMCAwdjZtMC02TDEwIDE0Ii8+Cjwvc3ZnPgo=');
+	width: 1.2em;
+	height: 1.2em;
+}
+
+cookie-consent-banner button {
+	box-shadow: var(--shadow-xl);
+	color: var(--color-white);
+	font-weight: var(--weight-bold);
+}

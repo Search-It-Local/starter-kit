@@ -1,0 +1,15 @@
+.prose > * + * {
+	margin-block-start: var(--space-md);
+}
+
+.prose > :where(p, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) + p {
+	margin-block-start: var(--space-xs);
+}
+
+.prose > :where(p, ul, ol, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) {
+	max-width: 68ch;
+}
+
+.prose > * + :where(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) {
+	margin-block-start: var(--space-lg);
+}

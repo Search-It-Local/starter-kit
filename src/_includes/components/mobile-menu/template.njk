@@ -1,0 +1,52 @@
+<div x-data="{ isOpen: false }" class="md:hidden">
+    <nav
+        class="mobile-menu bg-white shadow-2xl flex flex-col fixed left-0 top-0 w-64 z-20 py-10 transform -translate-x-full transition duration-500" :data-state="isOpen ? 'open' : 'closed'"
+        :class="{ 'translate-x-0 duration-300': isOpen, '-translate-x-[115vw] duration-500': !isOpen }"
+    >
+        <ul class="text-lg" role="list">
+            {% for link in props.links %}
+                {% if link.condition | default(true) %}
+                <li>
+                    <a
+                        class="block text-gray-700 font-bold py-4 px-8 no-underline"
+                        href="{{ link.href }}"
+                        {% if link.target %}target="{{ link.target }}"{% endif %}
+                    >{{ link.label }}</a>
+
+                    {% if link.children %}
+                        <ul class="mobile-menu__dropdown ml-4" role="list">
+                            {% for child in link.children %}
+                            <li>
+                                <a
+                                    class="block text-gray-700 font-normal py-4 px-8 no-underline"
+                                    href="{{ child.href }}"
+                                    {% if child.target %}target="{{ child.target }}"{% endif %}
+                                >{{ child.label }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+        {% if props.phoneNumber %}
+        <div class="mobile-menu__phone mt-auto py-4 px-8">
+            <p class="uppercase text-gray-700 tracking-wide text-sm">Call Us</p>
+            <a class="text-black text-xl font-bold tracking-tight" href="tel:{{ props.phoneNumber }}">{{ props.phoneNumber }}</a>
+        </div>
+        {% endif %}
+    </nav>
+
+    <button
+        @click="isOpen = !isOpen"
+        :data-state="isOpen ? 'open' : 'closed'"
+        class="hamburger relative z-10 md:hidden"
+        type="button"
+    >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+</div>

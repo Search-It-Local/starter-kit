@@ -1,0 +1,10 @@
+.opening-times__item:after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: calc(var(--space-1) + 2px);
+	left: 0;
+	width: 100%;
+	border: 1px dotted var(--color-gray-100);
+	z-index: 10;
+}

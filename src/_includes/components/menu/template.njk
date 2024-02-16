@@ -1,0 +1,53 @@
+<nav class="menu hidden md:block">
+    <ul class="flex gap-6" role="list">
+        {% for link in props.links %}
+            {% if link.condition | default(true) %}
+                {% if link.children %}
+                    <li
+                        x-data="{ isOpen: false }"
+                        class="menu__item group relative"
+                        style="z-index: {{ loop.index }}"
+                    >
+                        <a
+                            href="{{ link.href }}"
+                            class="flex items-center text-gray-700 no-underline uppercase hover:text-gray-900"
+                            {% if link.target %}target="{{ link.target }}"{% endif %}
+                        >
+                            <span>{{ link.label }}</span>
+                            {% icon "caret-down", "ml-2 size-sm" %}
+                        </a>
+
+                        {% if link.children %}
+                        <ul
+                            x-transition
+                            class="menu__dropdown hidden absolute -left-2 top-8 min-w-[10rem] bg-white shadow-xl flow flow-space-2 py-4 px-6 group-hover:block"
+                            role="list"
+                        >
+                            {% for child in link.children %}
+                                <li>
+                                    <a
+                                        href="{{ child.href }}"
+                                        {% if child.target %}target="{{ child.target }}"{% endif %}
+                                    >
+                                        {{ child.label }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+                {% else %}
+                    <li class="menu__item">
+                        <a
+                            class="text-gray-700 no-underline uppercase hover:text-gray-900"
+                            href="{{ link.href }}"
+                            {% if link.target %}target="{{ link.target }}"{% endif %}
+                        >
+                            {{ link.label }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>

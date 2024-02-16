@@ -1,0 +1,18 @@
+/**
+ * Belongs to: src/assets/js/image-gallery.wc.js
+ */
+image-gallery {
+	display: grid;
+	grid-template-columns: repeat(
+		auto-fill,
+		minmax(var(--image-gallery--min-width, clamp(5rem, 5rem + 16%, 18rem)), 1fr)
+	);
+	gap: var(--image-gallery--gap, 0.5rem);
+}
+
+image-gallery img {
+	aspect-ratio: var(--image-gallery--aspect-ratio, 1);
+	object-fit: cover;
+	height: auto;
+	width: 100%;
+}

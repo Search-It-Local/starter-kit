@@ -1,0 +1,33 @@
+{% set dayNames = {
+	'mon': 'Monday',
+	'tue': 'Tuesday',
+	'wed': 'Wednesday',
+	'thu': 'Thursday',
+	'fri': 'Friday',
+	'sat': 'Saturday',
+	'sun': 'Sunday'
+} %}
+
+<div x-data="openingTimes" class="opening-times">
+    <ul class="flow flow-space-2">
+        {% for item in site.openingTimes %}
+            <li class="opening-times__item relative flex items-center justify-between" :class="{ 'font-bold': today === '{{ item.day }}' }">
+                <p class="bg-white z-20 pr-3">{{ dayNames[item.day] }}</p>
+                <p class="bg-white z-20 pl-3">{{ item.times }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('openingTimes', () => ({
+			today: null,
+			dayNames: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
+			init: function () {
+				let today = new Date().getDay();
+				this.today = this.dayNames[today];
+			},
+        }))
+    });
+</script>

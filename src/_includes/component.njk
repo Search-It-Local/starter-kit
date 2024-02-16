@@ -1,0 +1,4 @@
+{# This is a wrapper function for calling components in Nunjucks, don't edit this unless you know what you're doing :) #}
+{% macro component(name, props) %}
+    {% include "components/" ~ name ~ "/template.njk" ignore missing %}
+{% endmacro %}

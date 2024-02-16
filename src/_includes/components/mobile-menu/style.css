@@ -1,0 +1,26 @@
+.hamburger .bar {
+	width: 36px;
+	height: 2px;
+	background-color: var(--bar-color, var(--color-black));
+	border-radius: 2px;
+	margin: 6px 0;
+	transition: 0.4s;
+	display: block;
+}
+
+.hamburger[data-state='open'] .bar:nth-child(1) {
+	transform: rotate(-45deg) translate(-4px, 4px);
+}
+
+.hamburger[data-state='open'] .bar:nth-child(2) {
+	opacity: 0;
+}
+
+.hamburger[data-state='open'] .bar:nth-child(3) {
+	transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.mobile-menu {
+	height: 100vh;
+	height: 100dvh;
+}

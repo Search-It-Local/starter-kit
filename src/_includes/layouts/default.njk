@@ -1,0 +1,56 @@
+{% from "component.njk" import component with context %}
+<!doctype html>
+<html lang="{{ site.language | default('en') }}">
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
+        <title>{{ item.title or title }}</title>
+        <meta name="description" content="{{ description }}">
+        {% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+
+        <style>
+            [x-cloak] {
+                display: none !important;
+            }
+        </style>
+
+        <!-- Global Styles -->
+        <link rel="stylesheet" href="/style.css">
+
+        <!-- Global Scripts -->
+        <script src="/bundle.js" defer></script>
+        <script type="module" src="https://unpkg.com/simple-cookie-consent-banner/cookie-consent-banner.js"></script>
+
+        {# Do not remove the comment below, 11ty will replace this with the Javascript for web components you use #}
+        <!-- CustomElementScripts -->
+
+        <link rel="manifest" href="/manifest.webmanifest">
+        <link rel="icon" href="/favicon.ico" sizes="any">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <meta name="twitter:dnt" content="on">
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','{{ site.googleTagManagerID }}');</script>
+
+    </head>
+    <body class="{{ bodyClass }}">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.googleTagManagerID }}"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+        {% block content %}{% endblock %}
+
+        <cookie-consent-banner no-load hidden>
+            <p>{{ site.cookieConsent.text | default('We use cookies to provide the best experience.') }}</p>
+        </cookie-consent-banner>
+    </body>
+</html>

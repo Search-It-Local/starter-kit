@@ -1,0 +1,18 @@
+section {
+	padding-block: var(--section-padding-block, var(--space-content));
+	padding-inline: var(--section-padding-inline, var(--space-container));
+}
+
+section[data-collapse] {
+	padding-block: 0;
+}
+
+section[data-collapse='top'] {
+	padding-block-start: 0;
+	padding-block-end: var(--section-padding-block, var(--space-content));
+}
+
+section[data-collapse='bottom'] {
+	padding-block-start: var(--section-padding-block, var(--space-content));
+	padding-block-end: 0;
+}
