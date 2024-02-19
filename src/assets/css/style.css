@@ -3,6 +3,7 @@
 @import 'global/fonts.css';
 @import 'global/reset.css';
 @import 'global/variables.css';
+@import 'global/forms.css';
 @import 'global/global-styles.css';
 
 @import 'tailwindcss/components';

@@ -1,0 +1,12 @@
+go-form {
+	display: block;
+}
+
+.grecaptcha-badge {
+	visibility: hidden;
+}
+
+.goform__error {
+	color: var(--color-negative);
+	font-size: var(--size-sm);
+}

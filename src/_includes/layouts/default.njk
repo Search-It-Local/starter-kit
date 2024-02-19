@@ -20,13 +20,22 @@
 
         <!-- Global Styles -->
         <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="{% getBundleFileUrl 'css' %}">
 
         <!-- Global Scripts -->
-        <script src="/bundle.js" defer></script>
+        <script src="/global.js" defer></script>
+        <script src="{% getBundleFileUrl 'js' %}" defer></script>
+        <script src="{% getBundleFileUrl 'js', 'module' %}" type="module"></script>
         <script type="module" src="https://unpkg.com/simple-cookie-consent-banner/cookie-consent-banner.js"></script>
 
-        {# Do not remove the comment below, 11ty will replace this with the Javascript for web components you use #}
+        {#
+            Do not remove the comment below, 11ty will replace this
+            with the assets for Custom Elements and Components
+            you use
+        #}
         <!-- CustomElementScripts -->
+
+        {% componentAssets %}
 
         <link rel="manifest" href="/manifest.webmanifest">
         <link rel="icon" href="/favicon.ico" sizes="any">

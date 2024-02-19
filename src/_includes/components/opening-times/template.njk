@@ -9,7 +9,7 @@
 } %}
 
 <div x-data="openingTimes" class="opening-times">
-    <ul class="flow flow-space-2">
+    <ul class="flow flow-space-xs" role="list">
         {% for item in site.openingTimes %}
             <li class="opening-times__item relative flex items-center justify-between" :class="{ 'font-bold': today === '{{ item.day }}' }">
                 <p class="bg-white z-20 pr-3">{{ dayNames[item.day] }}</p>

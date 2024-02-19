@@ -1,10 +1,11 @@
+
 const esbuild = require('esbuild');
 
 module.exports = class {
 	data() {
 		return {
 			layout: false,
-			permalink: '/bundle.js',
+			permalink: '/global.js',
 			eleventyExcludeFromCollections: true,
 		};
 	}
@@ -14,7 +15,7 @@ module.exports = class {
 		let result = await esbuild.build({
 			bundle: true,
 			minify: true,
-			entryPoints: ['src/assets/js/bundle.js'],
+			entryPoints: ['src/assets/js/global.js'],
 			write: false,
 			outdir: 'out',
 		});

@@ -1,0 +1,36 @@
+{% set dayNames = {
+	'mon': 'Monday',
+	'tue': 'Tuesday',
+	'wed': 'Wednesday',
+	'thu': 'Thursday',
+	'fri': 'Friday',
+	'sat': 'Saturday',
+	'sun': 'Sunday'
+} %}
+
+<div x-data="openToday" class="open-today text-sm/none">
+    <p hidden :hidden="!todaysOpeningTimes?.times || todaysOpeningTimes.times.toLowerCase() === 'closed'">
+        Open Today <strong x-text="todaysOpeningTimes.times"></strong>
+    </p>
+    <p :hidden="todaysOpeningTimes?.times && todaysOpeningTimes.times.toLowerCase() !== 'closed'">
+        Closed Today
+    </p>
+</div>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('openToday', () => ({
+			today: null,
+            openingTimes: JSON.parse('{{ site.openingTimes | dump | safe }}'),
+			dayNames: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
+            todaysOpeningTimes: null,
+			init: function () {
+				let today = new Date().getDay();
+				this.today = this.dayNames[today];
+                this.todaysOpeningTimes = this.openingTimes.find((day) => day.day === this.today);
+
+                console.log(this.todaysOpeningTimes);
+			},
+        }))
+    });
+</script>

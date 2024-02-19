@@ -5,6 +5,6 @@
 	bottom: calc(var(--space-1) + 2px);
 	left: 0;
 	width: 100%;
-	border: 1px dotted var(--color-gray-100);
+	border: 1px dotted var(--opening-times-border-color, var(--color-gray-100));
 	z-index: 10;
 }

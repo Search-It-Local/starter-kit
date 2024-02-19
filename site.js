@@ -1,3 +1,4 @@
+
 module.exports = {
 	/**
 	 * Site name, useful for page titles

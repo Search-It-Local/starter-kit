@@ -1,3 +1,4 @@
+
 const _ = require('lodash');
 const plugin = require('tailwindcss/plugin');
 const postcss = require('postcss');
@@ -36,6 +37,14 @@ const defaults = {
 		loose: 1.9,
 		...theme.lineHeight,
 	},
+	screens: {
+		sm: '600px',
+		md: '768px',
+		lg: '900px',
+		xl: '1140px',
+		'2xl': '1280px',
+		...theme.screens,
+	},
 	spacing: {
 		0: '0rem',
 		1: '0.25rem',
@@ -58,6 +67,7 @@ const defaults = {
 		64: '16rem',
 		80: '20rem',
 		96: '24rem',
+		xxs: 'clamp(0.3rem, 0.1757rem + 0.5304vw, 0.6rem)',
 		xs: 'clamp(0.5rem, 0.3397rem + 0.6838vw, 0.75rem)',
 		sm: 'clamp(0.75rem, 0.5428rem + 0.884vw, 1.25rem)',
 		md: 'clamp(1rem, 0.5856rem + 1.768vw, 2rem)',
@@ -88,10 +98,6 @@ module.exports = {
 	// Prevents Tailwind's core components
 	blocklist: ['container'],
 
-	// Prevents Tailwind from generating that wall of empty custom properties
-	experimental: {
-		optimizeUniversalDefaults: true,
-	},
 	plugins: [
 		plugin(function ({ addUtilities, config, e }) {
 			const flowSpaceUtilities = _.map(config('theme.spacing'), (value, key) => {
@@ -110,15 +116,15 @@ module.exports = {
 			const currentConfig = config();
 
 			const groups = [
-				{ key: 'borderRadius', prefix: 'radius' },
+				{ key: 'borderRadius', prefix: 'rounded' },
 				{ key: 'boxShadow', prefix: 'shadow' },
 				{ key: 'colors', prefix: 'color' },
 				{ key: 'spacing', prefix: 'space' },
-				{ key: 'fontSize', prefix: 'size' },
+				{ key: 'fontSize', prefix: 'text' },
 				{ key: 'lineHeight', prefix: 'leading' },
 				{ key: 'letterSpacing', prefix: 'tracking' },
 				{ key: 'fontFamily', prefix: 'font' },
-				{ key: 'fontWeight', prefix: 'weight' },
+				{ key: 'fontWeight', prefix: 'font' },
 			];
 
 			groups.forEach(({ key, prefix }) => {

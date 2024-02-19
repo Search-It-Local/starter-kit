@@ -1,0 +1,26 @@
+<go-form no-load>
+    <form class="flow flow-space-sm" action="https://goform.app/s/{{ id }}" method="post">
+        <div class="flow flow-space-1">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="flow flow-space-1">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="flow flow-space-1">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="flow flow-space-1">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="3" required></textarea>
+        </div>
+        <div class="flex flex-wrap items-center gap-xs">
+            <button class="button" data-size="sm" data-variant="secondary" type="submit">
+                Send {% icon "arrow-right" %}
+            </button>
+            <p>or call us on <a class="font-bold" href="tel:{{ site.phone }}">{{ site.phone }}</a></p>
+        </div>
+    </form>
+</go-form>

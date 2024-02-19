@@ -1,0 +1,67 @@
+.button {
+	background-color: var(--button-background-color, var(--color-primary));
+	border: 1px solid var(--button-border-color, var(--color-primary));
+	color: var(--button-color, var(--color-primary-contrast));
+	border-radius: var(--button-border-radius, var(--rounded-md));
+	display: inline-flex;
+	align-items: center;
+	font-size: var(--button-text-size, inherit);
+	font-weight: var(--button-font-weight, var(--font-bold));
+	gap: var(--button-gap, var(--space-1));
+	padding: var(--button-padding, var(--space-xs) var(--space-md));
+	transition: transform 150ms ease-in-out;
+}
+
+.button svg {
+	height: var(--button-icon-size, 1.35em);
+	width: var(--button-icon-size, 1.35em);
+}
+
+.button:hover,
+.button:focus-visible {
+	--button-background-color: var(--color-primary-contrast);
+	--button-color: var(--color-primary);
+	transform: translateY(-2px);
+}
+
+.button:active {
+	transform: translateY(1px);
+}
+
+/* Style Variants */
+
+.button[data-variant='secondary'] {
+	--button-background-color: var(--color-secondary);
+	--button-border-color: var(--color-secondary);
+	--button-color: var(--color-secondary-contrast);
+}
+
+.button[data-variant='secondary']:hover,
+.button[data-variant='secondary']:focus-visible {
+	--button-background-color: var(--color-secondary-contrast);
+	--button-color: var(--color-secondary);
+}
+
+.button[data-variant='gray'] {
+	--button-background-color: var(--color-gray-900);
+	--button-border-color: var(--color-gray-900);
+	--button-color: var(--color-gray-100);
+}
+
+.button[data-variant='gray']:hover,
+.button[data-variant='gray']:focus-visible {
+	--button-background-color: var(--color-gray-100);
+	--button-color: var(--color-gray-900);
+}
+
+/* Size Variants */
+
+.button[data-size='sm'] {
+	--button-padding: var(--space-xxs) var(--space-sm);
+	--button-text-size: var(--text-sm);
+}
+
+.button[data-size='lg'] {
+	--button-gap: var(--space-xxs);
+	--button-text-size: var(--text-lg);
+}

@@ -5,7 +5,7 @@
 }
 
 *:focus-visible {
-	border-radius: var(--radius);
+	border-radius: var(--rounded);
 	outline: 3px solid var(--color-black);
 	outline-offset: 0.2rem;
 }
@@ -50,7 +50,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-	font-weight: var(--weight-bold);
+	font-weight: var(--font-bold);
 	letter-spacing: var(--tracking-tight);
 	line-height: var(--leading-tight);
 	text-wrap: balance;
@@ -59,22 +59,22 @@ h6,
 
 h1,
 .h1 {
-	font-size: var(--size-4xl);
+	font-size: var(--text-4xl);
 }
 
 h2,
 .h2 {
-	font-size: var(--size-2xl);
+	font-size: var(--text-2xl);
 }
 
 h3,
 .h3 {
-	font-size: var(--size-xl);
+	font-size: var(--text-xl);
 }
 
 h4,
 .h4 {
-	font-size: var(--size-lg);
+	font-size: var(--text-lg);
 }
 
 :where(ul[role='list'], ol[role='list']) {

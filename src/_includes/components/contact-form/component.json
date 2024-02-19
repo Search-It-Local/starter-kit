@@ -1,0 +1,9 @@
+{
+	"scripts": [
+		{
+			"id": "goform-validate",
+			"src": "https://goform.app/wc.js",
+			"defer": true
+		}
+	]
+}
