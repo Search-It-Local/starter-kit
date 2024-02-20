@@ -1,0 +1,18 @@
+---
+title: Contact Us
+---
+{% extends "layouts/default.njk" %}
+{% block content %}
+
+    <section class="grid gap-lg md:grid-cols-2">
+        <div class="flow flow-space-md">
+            <h2>Get a Quote</h2>
+            {{ component("contact-form", { id: "goform-id-here" }) }}
+        </div>
+        <div class="flow flow-space-md">
+            <h2>Opening Times</h2>
+            {{ component("opening-times") }}
+        </div>
+    </section>
+
+{% endblock %}

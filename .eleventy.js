@@ -1,11 +1,14 @@
 
 const bundlerPlugin = require('@11ty/eleventy-plugin-bundle');
+const { eleventyImageTransformPlugin } = require('@11ty/eleventy-img');
 
 const siteConfig = require('./site.js');
 const findCustomElements = require('./lib/build/findCustomElements');
+const eleventyImageConfig = require('./lib/build/eleventyImageConfig');
 const componentAssetsShortcode = require('./lib/shortcodes/component-assets.js');
 const iconShortcode = require('./lib/shortcodes/icon');
 const globFilter = require('./lib/filters/glob');
+const mergeClassesFilter = require('./lib/filters/mergeClasses');
 
 module.exports = function (eleventyConfig) {
 	// Site Config
@@ -17,6 +20,7 @@ module.exports = function (eleventyConfig) {
 
 	// Filters
 	eleventyConfig.addFilter('glob', globFilter);
+	eleventyConfig.addFilter('mergeClasses', mergeClassesFilter);
 
 	// Passthrough Files/Directories
 	eleventyConfig.addPassthroughCopy('src/assets');
@@ -28,6 +32,7 @@ module.exports = function (eleventyConfig) {
 
 	// Plugins
 	eleventyConfig.addPlugin(bundlerPlugin);
+	eleventyConfig.addPlugin(eleventyImageTransformPlugin, eleventyImageConfig);
 
 	// Find and inject scripts for custom elements and components
 	eleventyConfig.on('eleventy.after', async ({ results }) => {

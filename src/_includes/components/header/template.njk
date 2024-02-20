@@ -1,0 +1,14 @@
+<header class="container py-md flex items-center justify-between gap-md">
+    {{ component("logo", { name: site.name }) }}
+
+    <div class="flex items-center gap-md lg:flex-col lg:items-end">
+        <div class="flex flex-col items-end gap-2">
+            <div class="hidden sm:block">
+                {{ component("open-today") }}
+            </div>
+            {{ component("menu", { links: site.menus.main }) }}
+        </div>
+
+        {{ component("mobile-menu", { links: site.menus.main, phoneNumber: site.phone }) }}
+    </div>
+</header>

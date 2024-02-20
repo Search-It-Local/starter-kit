@@ -4,40 +4,21 @@ title: Home
 
 {% set gallery = "./src/assets/images/*.jpg" | glob %}
 {% extends "layouts/default.njk" %}
-
 {% block content %}
 
-	<header class="container py-md flex items-center justify-between gap-md">
-		{{ component("logo", { name: site.name }) }}
-
-		<div class="flex items-center gap-md lg:flex-col lg:items-end">
-			<div class="flex flex-col items-end gap-2">
-				<div class="hidden sm:block">
-					{{ component("open-today") }}
-				</div>
-				{{ component("menu", { links: site.menus.main }) }}
+	<section>
+		<article class="grid">
+			<div class="col-start-1 row-start-1">
+				<img
+					sizes="{{ imageSize.sm }}"
+					src="/assets/images/aleks-marinkovic-vCi8uyB04bg-unsplash.jpg"
+					alt=""
+				>
 			</div>
-
-			{{ component("mobile-menu", { links: site.menus.main, phoneNumber: site.phone }) }}
-		</div>
-	</header>
-
-	<section class="grid gap-lg md:grid-cols-2">
-		<div class="flow flow-space-md">
-			<h2>Get a Quote</h2>
-			{{ component("contact-form", { id: "goform-id-here" }) }}
-		</div>
-		<div class="flow flow-space-md">
-			<h2>Opening Times</h2>
-			{{ component("opening-times") }}
-		</div>
+			<div class="col-start-1 row-start-1">
+				Example Card
+			</div>
+		</article>
 	</section>
-
-	<footer class="container">
-		<p class="text-sm">This site is protected by reCAPTCHA and the Google
-			<a href="https://policies.google.com/privacy">Privacy Policy</a> and
-			<a href="https://policies.google.com/terms">Terms of Service</a> apply.
-		</p>
-	</footer>
 
 {% endblock %}

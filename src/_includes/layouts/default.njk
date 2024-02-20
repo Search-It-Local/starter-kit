@@ -56,7 +56,9 @@
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.googleTagManagerID }}"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+        {{ component("header") }}
         {% block content %}{% endblock %}
+        {{ component("footer") }}
 
         <cookie-consent-banner no-load hidden>
             <p>{{ site.cookieConsent.text | default('We use cookies to provide the best experience.') }}</p>
