@@ -4,11 +4,12 @@ const postcss = require('postcss');
 const postcssJs = require('postcss-js');
 const theme = require('./theme');
 
+/**
+ * To add values specific to this project, you should add them
+ * in theme.js. This file is for default values that are not
+ * specific to this project.
+ */
 const defaults = {
-	/**
-	 * For config where you'd like to override Tailwind's defaults,
-	 * nest them in the `theme` object.
-	 */
 	colors: {
 		current: 'currentColor',
 		inherit: 'inherit',
