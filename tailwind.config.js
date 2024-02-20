@@ -1,4 +1,3 @@
-
 const _ = require('lodash');
 const plugin = require('tailwindcss/plugin');
 const postcss = require('postcss');
@@ -75,7 +74,7 @@ const defaults = {
 		xl: 'clamp(2rem, 1.1713rem + 3.5359vw, 4rem)',
 		'2xl': 'clamp(2.5rem, 1.4641rem + 4.4199vw, 5rem)',
 		'3xl': 'clamp(3rem, 1.7569rem + 5.3039vw, 6rem)',
-		container: 'max(2rem, 10vw)',
+		container: 'max(2rem, 8vw)',
 		content: 'clamp(3rem, 1.3974rem + 6.8376vw, 5.5rem)',
 		...theme.spacing,
 	},

@@ -1,5 +1,5 @@
 <nav class="menu hidden lg:block">
-    <ul class="flex gap-6" role="list">
+    <ul class="flex items-center gap-6 text-sm" role="list">
         {% for link in props.links %}
             {% if link.condition | default(true) %}
                 {% if link.children %}
@@ -10,11 +10,11 @@
                     >
                         <a
                             href="{{ link.href }}"
-                            class="flex items-center text-gray-700 no-underline uppercase hover:text-gray-900"
+                            class="flex items-center text-gray-700 leading-none no-underline uppercase hover:text-gray-900"
                             {% if link.target %}target="{{ link.target }}"{% endif %}
                         >
                             <span>{{ link.label }}</span>
-                            {% icon "caret-down", "ml-2 size-sm" %}
+                            {% icon "caret-down", "ml-1 text-sm" %}
                         </a>
 
                         {% if link.children %}
@@ -26,6 +26,7 @@
                             {% for child in link.children %}
                                 <li>
                                     <a
+                                        class="text-gray-700 no-underline"
                                         href="{{ child.href }}"
                                         {% if child.target %}target="{{ child.target }}"{% endif %}
                                     >
@@ -39,7 +40,7 @@
                 {% else %}
                     <li class="menu__item">
                         <a
-                            class="text-gray-700 no-underline uppercase hover:text-gray-900"
+                            class="text-gray-700 leading-none no-underline uppercase hover:text-gray-900"
                             href="{{ link.href }}"
                             {% if link.target %}target="{{ link.target }}"{% endif %}
                         >

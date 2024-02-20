@@ -1,4 +1,3 @@
-
 const tailwindConfig = require('../../tailwind.config.js');
 
 // Loop over the screen sizes object and create a media query for each one in the format of (min-width: 640px) 640w
@@ -9,7 +8,5 @@ Object.entries(tailwindConfig.theme.screens).forEach(([key, value]) => {
 
 // All screens
 screens.all = Object.values(screens).join(', ');
-
-console.log(screens);
 
 module.exports = screens;
