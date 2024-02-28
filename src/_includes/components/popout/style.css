@@ -1,0 +1,51 @@
+dismissable-element > :first-child {
+	animation: dismissable-element-enter 1s ease forwards;
+	animation-delay: 1s;
+	opacity: 0;
+	transform: translateY(8rem);
+}
+
+dismissable-element[dismissed] > :first-child {
+	animation: dismissable-element-exit 1s ease forwards;
+	animation-delay: 0s;
+	opacity: 1;
+	transform: translateY(0);
+}
+
+dismissable-element button[data-close] {
+	color: rgba(255, 255, 255, 0.5);
+	font-size: var(--text-lg);
+	padding: var(--space-xs);
+	position: absolute;
+	top: 0;
+	right: 0;
+	transition: color 0.2s ease;
+}
+
+dismissable-element button[data-close]:hover {
+	color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes dismissable-element-enter {
+	0% {
+		opacity: 0;
+		transform: translateY(8rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes dismissable-element-exit {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateY(8rem);
+	}
+}

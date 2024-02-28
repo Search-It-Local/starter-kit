@@ -20,7 +20,7 @@
                         {% if link.children %}
                         <ul
                             x-transition
-                            class="menu__dropdown hidden absolute -left-2 top-8 min-w-[10rem] bg-white shadow-xl flow flow-space-2 py-4 px-6 group-hover:block"
+                            class="menu__dropdown hidden absolute -left-2 top-8 z-50 min-w-[10rem] bg-white shadow-xl flow flow-space-2 py-4 px-6 group-hover:block"
                             role="list"
                         >
                             {% for child in link.children %}

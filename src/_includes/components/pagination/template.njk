@@ -1,0 +1,43 @@
+{% set id = props.id | default('pagination') %}
+{% set pageCount = pagination.pages | length %}
+
+{% if pageCount > 1 %}
+    <nav aria-labelledby="pagination" class="{{ ['pagination', props.class] | mergeClasses }}">
+        <h2 id="{{ id }}" class="sr-only">Pagination</h2>
+
+        {% if content %}
+            {{ content | safe }}
+        {% endif %}
+
+        <ol class="pagination__items" role="list">
+
+            <li class="pagination__item pagination__previous mr-xs">
+                {% if pagination.href.previous %}
+                    <a href="{{ pagination.href.previous }}">Previous</a>
+                {% else %}
+                    <span class="text-gray-500">Previous</span>
+                {% endif %}
+            </li>
+
+            {% for entry in props.pagination.pages %}
+                <li class="pagination__item pagination__number">
+                    <a
+                        href="{{ props.pagination.hrefs[ loop.index0 ] }}"
+                        {% if props.currentPage.url == props.pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}
+                    >
+                        <span class="sr-only">Page</span> {{ loop.index }}
+                    </a>
+                </li>
+            {% endfor %}
+
+            <li class="pagination__item pagination__next ml-xs">
+                {% if pagination.href.next %}
+                    <a href="{{ pagination.href.next }}">Next</a>
+                {% else %}
+                    <span class="text-gray-500">Next</span>
+                {% endif %}
+            </li>
+
+        </ol>
+    </nav>
+{% endif %}

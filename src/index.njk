@@ -1,24 +1,9 @@
 ---
 title: Home
 ---
-
-{% set gallery = "./src/assets/images/*.jpg" | glob %}
 {% extends "layouts/default.njk" %}
 {% block content %}
 
-	<section>
-		<article class="grid">
-			<div class="col-start-1 row-start-1">
-				<img
-					sizes="{{ imageSize.sm }}"
-					src="/assets/images/aleks-marinkovic-vCi8uyB04bg-unsplash.jpg"
-					alt=""
-				>
-			</div>
-			<div class="col-start-1 row-start-1">
-				Example Card
-			</div>
-		</article>
-	</section>
+
 
 {% endblock %}

@@ -1,0 +1,24 @@
+{% set id = props.id | default('popout') %}
+{% set content = children | aria({
+    '[data-label]': id ~ '-label',
+    '[data-description]': id ~ '-description'
+}) %}
+
+<dismissable-element id="{{ id }}">
+    <div
+        class="{{ [
+            'flow flow-space-xs fixed z-40 bottom-md left-md right-md max-w-96 bg-primary text-primary-contrast shadow-xl p-lg',
+            props.class
+        ] | mergeClasses }}"
+        role="dialog"
+        aria-labelledby="{{ id }}-label"
+        aria-describedby="{{ id }}-description"
+    >
+        <button type="button" data-close>
+            <span class="sr-only">Close</span>
+            {% icon "close" %}
+        </button>
+
+        {{ content | safe }}
+    </div>
+</dismissable-element>

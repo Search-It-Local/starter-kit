@@ -55,6 +55,18 @@
 	--button-color: var(--color-gray-900);
 }
 
+.button[data-variant='highlight'] {
+	--button-background-color: var(--color-highlight);
+	--button-border-color: var(--color-highlight);
+	--button-color: var(--color-black);
+}
+
+.button[data-variant='highlight']:hover,
+.button[data-variant='highlight']:focus-visible {
+	--button-background-color: var(--color-black);
+	--button-color: var(--color-highlight);
+}
+
 /* Size Variants */
 
 .button[data-size='sm'] {

@@ -1,0 +1,25 @@
+.pagination__items {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: var(--pagination-alignment, center);
+	gap: var(--pagination-gap, var(--space-xxs));
+}
+
+.pagination__item a {
+	color: var(--pagination-link-color, inherit);
+	text-decoration: none;
+}
+
+.pagination__item a[aria-current] {
+	color: var(--pagination-active-color, var(--color-primary));
+	font-weight: var(--font-bold);
+}
+
+.pagination__item span {
+	color: var(--pagination-disabled-color, var(--color-gray-500));
+}
+
+.pagination__number {
+	font-size: var(--text-lg);
+}

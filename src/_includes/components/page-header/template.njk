@@ -1,0 +1,7 @@
+<div class="{{ ['px-container pb-lg pt-content dashed-border-b', props.class] | mergeClasses }}">
+    {% if children %}
+        {{ children | safe }}
+    {% else %}
+        <h1>{{ title }}</h1>
+    {% endif %}
+</div>
